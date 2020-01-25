@@ -1,0 +1,770 @@
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,,1,1,1,A/N,E,=,End of Day
+"",,,,,,,,Transaction MRO
+"",,,,,,M,=,Multi-Cycle
+"",,,,,,,,Transaction MRO
+Record Subtype,,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence,,
+"",,,,,,Number + 1,,
+Logical Sequence Number,2,5,6,NUM,02,,
+AT Record Type Status,1,7,7,A/N,Values for Status Code:,,
+"",,,,,,0,,= Valid
+"",,,,,,1,,=  Participant
+"",,,,,,,,Changed
+"",,,,,,2,,= System Changed
+"",,,,,,3,,= Error
+"",,,,,,Space,,= No Change
+AT Record Length Status,1,8,8,A/N,See status code values above,,
+AT Physical Sequence Number Status,1,9,9,A/N,See status code values above,,
+AT Logical Sequence Number Status,1,10,10,A/N,See status code values above,,
+AT Transaction Type Status,1,11,11,A/N,See status code values above,,
+AT ACATS Control Number Status,1,12,12,A/N,See status code values above,,
+AT Transfer Type Status,1,13,13,A/N,See status code values above,,
+AT Submitting Participant Number Status,1,14,14,A/N,See status code values above,,
+AT Original Receiver Number Status,1,15,15,A/N,See status code values above,,
+AT Original Deliverer  Number Status,1,16,16,A/N,See status code values above,,
+AT Transaction Reference ID Status,1,17,17,A/N,See status code values above,,
+AT Asset Sequence Number Status,1,18,18,A/N,See status code values above,,
+Asset Pricing Category Status,1,19,19,A/N,See status code values above,,
+Option Category Status,1,20,20,A/N,See status code values above,,
+Settling Location  Status,1,21,21,A/N,See status code values above,,
+Settling Location  Reason Status,1,22,22,A/N,See status code values above,,
+ISIN Country Code Status,1,23,23,A/N,See status code values above,,
+ISIN Security Issue ID Status,1,24,24,A/N,See status code values above,,
+ISIN Security Check Digit  Status,1,25,25,A/N,See status code values above,,
+Asset Description Status,1,26,26,A/N,See status code values above,,
+Asset Quantity Request Indicator Status,1,27,27,A/N,See status code values above,,
+Asset Request Transaction Code Status,1,28,28,A/N,See status code values above,,
+Asset Quantity Status,1,29,29,A/N,See status code values above,,
+Asset Percent Status,1,30,30,A/N,Field not applicable,,
+Position Code Status,1,31,31,A/N,See status code values above,,
+ISO Currency Code Status,1,32,32,A/N,See status code values above,,
+Asset Amount Status,1,33,33,A/N,See status code values above,,
+Bearer Bond Status,1,34,34,A/N,See status code values above,,
+Cash/Margin/Short Code Status,1,35,35,A/N,See status code values above,,
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+When Issued Indicator Status,1,36,36,A/N,See status code values above
+Transfer Type Reason Status,1,37,37,A/N,See status code values above
+MBS Serial Note Status,1,38,38,A/N,See status code values above
+Asset Comment (Text) Status,1,39,39,A/N,See status code values above
+Option Buy – Sell Indicator Status,1,40,40,A/N,See status code values above
+Option P-C Indicator Status,1,41,41,A/N,See status code values above
+Option O-C Indicator Status,1,42,42,A/N,See status code values above
+Option Symbol Status,1,43,43,A/N,See status code values above
+Option Expiration Date Status,1,44,44,A/N,See status code values above
+Option Strike Price Integer  Status,1,45,45,A/N,See status code values above
+Option Strike Price Fraction Status,1,46,46,A/N,See status code values above
+Option OCC Deliverer Number Status,1,47,47,A/N,See status code values above
+Option Account Type Status,1,48,48,A/N,See status code values above
+Sub Account ID Status,1,49,49,A/N,See status code values above
+Option Comments (Text) Status,1,50,50,A/N,See status code values above
+Fund Customer Account Number Status,1,51,51,A/N,See status code values above
+Book/Physical Share Indicator Status,1,52,52,A/N,See status code values above
+Network Control Indicator Status,1,53,53,A/N,See status code values above
+Account Type Indicator Status,1,54,54,A/N,See status code values above
+Dividend Code Status,1,55,55,A/N,See status code values above
+Dividend Payee Indicator Status,1,56,56,A/N,See status code values above
+Executing Broker Status,1,57,57,A/N,See status code values above
+MF Full/Partial Indicator Status,1,58,58,A/N,See status code values above
+Share Aging Indicator Status,1,59,59,A/N,See status code values above
+Firm Membership Indicator Deliverer Status,1,60,60,A/N,See status code values above
+New Fund Customer Account Number,1,61,61,A/N,See status code values above
+Receiver Status,,,,,
+Re-registration Date at Fund Status,1,62,62,A/N,See status code values above
+MF Agent Processing Indicator (Deliverer),1,63,63,A/N,See status code values above
+Status,,,,,
+Filler,7,64,70,A/N,
+AT Record Type,2,71,72,A/N,'AT'
+AT Record Length,4,73,76,NUM,
+AT Physical Sequence Number,2,77,78,NUM,
+AT Logical Sequence Number,2,79,80,NUM,
+"",,,,,END OF RECORD
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,03,,
+Number,,,,,,,
+AT Transaction Type,1,7,7,A/N,A,=,Add
+"",,,,,C,=,Change
+"",,,,,D,=,Delete
+AT ACATS Control,14,8,21,A/N,Format is: CCYYDDDNNNNNNN,,
+Number,,,,,,,
+AT Transfer Type,3,22,24,A/N,FRV,,=Fail Reversal (broker to broker only)
+"",,,,,FUL,,=Full Transfer
+"",,,,,MFC,,=Mutual Fund Cleanup
+"",,,,,PTD,,=  Partial Transfer Deliverer
+"",,,,,PTF,,=Position Transfer Fund (Firm to
+"",,,,,,,Mutual Fund Company Only)
+"",,,,,PTR,,=  Partial Transfer Request (Receiver)
+"",,,,,RCL,,=Reclaim
+"",,,,,RCR,,=  Residual Credit
+Filler,4,25,28,A/N,Reserved for future use—spaces,,
+AT Submitting,4,29,32,A/N,,,
+Participant Number,,,,,,,
+Filler,4,33,36,A/N,Reserved for future use—spaces,,
+AT Original Receiver,4,37,40,A/N,,,
+Number,,,,,,,
+Filler,4,41,44,A/N,Reserved for future use—spaces,,
+AT Original Deliverer,4,45,48,A/N,,,
+Number,,,,,,,
+AT Transaction,20,49,68,A/N,,,
+Reference ID,,,,,,,
+AT Asset Sequence,6,69,74,NUM,,,
+Number,,,,,,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Asset Pricing Category,4,75,78,A/N,ALT,=,Alternative Investment
+"",,,,,ANNU,=,Annuity
+"",,,,,CDCP,=,CD & Commercial Paper
+"",,,,,CORP,=,Corporate Bond
+"",,,,,EQU,=,Equities
+"",,,,,FCUR,=,Foreign Currency
+"",,,,,FDEB,=,Foreign Debt
+"",,,,,FEQU,=,Foreign Equities
+"",,,,,GOVT,=,"US Govt., US Govt. Agency"
+"",,,,,LIFE,=,Life Insurance (Future Use only)
+"",,,,,LPAR,=,Limited Partnership
+"",,,,,MBS,=,"FHLMC, FNMA, GNMA"
+"",,,,,MFMM,=,Mutual Fund Money Market
+"",,,,,MFNM,=,Mutual Fund Non Money Market
+"",,,,,MUNI,=,Municipal Bonds
+"",,,,,OPT,=,Options
+"",,,,,OTH,=,Other – Remove as of 11/4/16
+"",,,,,REIT,=,Real Estate Investment Trusts
+"",,,,,RGT,=,Rights
+"",,,,,UARP,=,Auction Rate Preferred – UIT
+"",,,,,UDSC,=,Deferred Sales Charge  - UIT
+"",,,,,UIT,=,Unit Investment Trust
+"",,,,,UNT,=,Units
+"",,,,,WAR,=,Warrant
+"",,,,,ZERO,=,Zero Coupon Bonds
+Filler,2,79,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,04,,
+Number,,,,,,,
+Option Category,2,7,8,A/N,00,=,Non option
+"",,,,,01,=,Equity Option
+"",,,,,02,=,Non-equity option
+"",,,,,03,=,ICS Option
+Settling Location,2,9,10,A/N,05,=,CNS
+"",,,,,10,=,Fund/SERV
+"",,,,,15,=,PTC
+"",,,,,20,=,GSCC
+"",,,,,25,=,DTC
+"",,,,,30,=,Undeliverable
+"",,,,,35,=,OCC
+"",,,,,40,=,Cash Balance
+"",,,,,45,=,Memo
+"",,,,,50,=,R&D
+"",,,,,55,=,R&D (Foreign)
+"",,,,,60,=,IPS
+"",,,,,65,=,Insurance Memo
+Settling Location,4,11,14,A/N,DTC,,=DTC Eligible Only
+Reason,,,,,EXPO,,= Expiring Option
+"",,,,,OPT,,=  Option
+"",,,,,USEC,,= Underlying Security
+"",,,,,CRED,,=  Credit Balance
+"",,,,,DEB,,=  Debit Balance
+"",,,,,CASH,,= Underlying Cash Balance
+"",,,,,COMT,,= Comment
+"",,,,,SMA,,=  Special Misc. Accounting Value
+"",,,,,RSEC,,= Restricted Security
+"",,,,,SFK,,= Safekeeping
+"",,,,,XSET,,"= Outside CNS, DTC, Fund/SERV,"
+"",,,,,,,"GSCC, PTC"
+"",,,,,FCUR,,= Foreign Currency
+"",,,,,DDEL,,= Delayed Delivery
+"",,,,,NSET,,"= System Derived Outside CNS, DTC,"
+"",,,,,,,"Fund/SERV, GSCC, PTC"
+"",,,,,IPO,,=  System Derived Initial Public Offering
+"",,,,,NIPS,,= Both Receiver and CUSIP (ISIN) Not
+"",,,,,,,Eligible for IPS
+"",,,,,NTRN,,=6-year (PREMed) Non-Transferable
+"",,,,,RIPS,,= Receiver Not Eligible for IPS
+"",,,,,XIPS,,= CUSIP (ISIN) Not Eligible for IPS
+"",,,,,REGT,,= REG T Calls (create date and
+"",,,,,,,amount required)
+"",,,,,90DR,,= 90 Day Restriction (expiration date
+"",,,,,,,required)
+ISIN Country Code,2,15,16,A/N,,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+ISIN Security Issue,9,17,25,A/N,,,
+ID,,,,,,,
+ISIN Security Check,1,26,26,A/N,,,
+Digit,,,,,,,
+DTC Sub Issue,1,27,27,A/N,A,=,Auction Rate Security
+Type,,,,,,,
+Filler,53,28,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,05,,
+Asset Description 1,70,7,76,A/N,,,
+Filler,4,77,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,06,,
+Asset Description 2,70,7,76,A/N,,,
+Filler,4,77,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,07,,
+Number,,,,,,,
+Asset Quantity Request,1,7,7,A/N,F,=,Request Full Position
+Indicator,,,,,P,=,Request Partial Position
+Asset Request,1,8,8,A/N,2,=,Shares
+Transaction Code,,,,,3,=,Currency Amount
+Asset Quantity,17,9,25,A/N,"Floating decimal denoted by a ‘,’ (comma).",,
+Asset Percent,15,26,40,A/N,Field not applicable,,
+Position Code,1,41,41,A/N,S,=,Short Position
+"",,,,,L,=,Long Position
+ISO Currency Code,3,42,44,A/N,,,
+Asset Amount,17,45,61,A/N,"Floating decimal, which is denoted by a ‘,’",,
+"",,,,,(comma).,,
+Bearer Bond,1,62,62,A/N,‘B’,=,Bearer Bond
+"",,,,,‘N’,=,Not a Bearer Bond
+Cash/Margin/,1,63,63,A/N,C,=,Cash
+Short Code,,,,,M,=,Margin
+"",,,,,S,=,Short
+"",,,,,N,=,Not Applicable
+When Issued Indicator,1,64,64,A/N,‘W’  =,,When Issued
+"",,,,,‘N’,=,Not When Issued
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Transfer Type Reason,2,65,66,A/N,01,=,Cash Dividend
+"",,,,,02,=,Interest
+"",,,,,03,=,Liquidation
+"",,,,,04,=,Stock Dividend/ Distribution
+"",,,,,05,=,Stock Split
+"",,,,,06,=,Reorganization
+"",,,,,07,=,Redemption
+"",,,,,08,=,Underlying Option
+"",,,,,09,=,Underlying Security
+"",,,,,10,=,Miscellaneous
+"",,,,,11,=,Mutual Funds Fractional Cash-in-lieu
+"",,,,,12,=,Mutual Funds Accrual
+"",,,,,13,=,Mutual Funds Residual
+"",,,,,40,=,Fail – position was liquidated
+"",,,,,41,=,Fail – position in reorganization
+"",,,,,42,=,Fail – position matured or expired
+"",,,,,43,=,Fail – no broker/dealer agreement
+"",,,,,44,=,Fail – fractional share quantity
+"",,,,,45,=,Fail – non-deliverable denominations
+"",,,,,46,=,Fail – position is non-deliverable
+"",,,,,47,=,Fail – miscellaneous
+"",,,,,60,=,Reclaim – client rescinded – will be
+"",,,,,,,removed as of 11/4/16
+"",,,,,61,=,Reclaim – duplicate delivery
+"",,,,,62,=,Reclaim – delivered asset that did not
+"",,,,,,,belong to client
+"",,,,,63,=,Reclaim – over delivery
+"",,,,,64,=,Reclaim – fees were not withheld
+"",,,,,65,=,Reclaim-Miscellaneous
+MBS Serial Note,3,67,69,A/N,,,
+Filler,11,70,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,08,,
+Asset Comment (Text) 1,60,7,66,A/N,,,
+Filler,14,67,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,09,,
+Asset Comment (Text) 2,60,7,66,A/N,,,
+Filler,14,67,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+Data Area for Asset Types,,,,,Used when Settling Location is ’35’ (OCC) and
+of Option,,,,,Option Category is greater than zeros.
+Record Type,1,1,1,A/N,E =End of Day Transaction MRO
+"",,,,,M =Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A =Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1
+Number,,,,,
+Logical Sequence,2,5,6,NUM,10
+Number,,,,,
+Option Buy – Sell,1,7,7,A/N,B  =  Buy
+Indicator,,,,,S  =  Sell
+Option P-C Indicator,1,8,8,A/N,P  = Put
+"",,,,,C  = Call
+Option O-C Indicator,1,9,9,A/N,O  = Open
+"",,,,,C  = Closed
+Option Symbol,6,10,15,A/N,
+Option Expiration Date,8,16,23,A/N,New format is CCYYMMDD
+Filler,6,24,29,A/N,Reserved for future use—spaces
+Option Decimal/Fraction,1,30,30,A/N,D = Decimal strike price
+Indicator,,,,,
+Option Strike Price Integer,5,31,35,A/N,"Format is 99,999 or 9(5)"
+Filler,2,36,37,A/N,Reserved for future use—spaces
+Option Strike Price,3,38,40,A/N,The only valid values are 000 through 999 which
+Decimal,,,,,represent decimal format only
+Filler,2,41,42,A/N,Reserved for future use—spaces
+Option OCC Deliverer,5,43,47,A/N,
+Number,,,,,
+Option Account Type,1,48,48,A/N,C  =  Customer
+"",,,,,F=  Firm
+"",,,,,M  =  Market Maker
+Filler,4,49,52,A/N,Reserved for future use—spaces
+Sub Account ID,4,53,56,A/N,
+Option Comments (Text),16,57,72,A/N,
+Filler,8,73,80,A/N,Reserved for future use—spaces
+"",,,,,END OF RECORD
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+Asset Mutual,,,,,Used when Settling Location is ‘10’ (Fund/SERV) or
+Fund Data,,,,,"Transfer Type = ‘MFC’, unless Transfer Type = ‘PTR’ or"
+"",,,,,‘PTF’ and Submitter is the Receiver
+Record Type,1,1,1,A/N,E =End of Day Transaction MRO
+"",,,,,M =Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A =Asset Output
+Physical,2,3,4,NUM,Prior Physical Sequence Number + 1
+Sequence,,,,,
+Number,,,,,
+Logical,2,5,6,NUM,10
+Sequence,,,,,
+Number,,,,,
+Fund Customer,20,7,26,A/N,
+Account,,,,,
+Number,,,,,
+Book/Physical,1,27,27,A/N,0 = Transfer in and out: Book Shares. BIN specified
+Share Indicator,,,,,1 = Transfer in and out: Book Shares. FIN specified
+"",,,,,2 = Transfer in: Book Shares Transfer out: Physical
+"",,,,,FIN specified
+Network Control,1,28,28,A/N,0 =  Not Networked
+Indicator,,,,,3 =  Broker controlled brokerage account
+"",,,,,4 =  Fund controlled brokerage account
+Account Type,1,29,29,A/N,1 =  Customer Name
+Indicator,,,,,2 =  Street Name
+Dividend Code,1,30,30,A/N,Long Term Short Term
+"",,,,,Dividend Cap Gain Cap Gain
+"",,,,,0  = Cash Cash Cash
+"",,,,,1  = Reinvest Reinvest Reinvest
+"",,,,,2  = Cash Cash Reinvest
+"",,,,,3  = Cash Reinvest Reinvest
+"",,,,,4  = Cash Reinvest Cash
+"",,,,,5  = Reinvest Cash Cash
+"",,,,,6  = Reinvest Reinvest Cash
+"",,,,,7  = Reinvest Cash Reinvest
+Dividend Payee,1,31,31,A/N,0 = Customer
+Indicator,,,,,1 = Firm
+"",,,,,2 = Executing Firm
+"",,,,,‘N‘  = Not applicable
+Filler,4,32,35,A/N,Reserved for future use—spaces
+Executing,4,36,39,A/N,
+Broker,,,,,
+MF Full/Partial,1,40,40,A/N,1 = Full Transfer
+Indicator,,,,,2 = Partial Transfer
+FIELD NAME,LENGTH,START,END,TYPE,,,,COMMENTS
+Share Aging,1,41,41,A/N,1 =,,,The delivering firm or fund company will
+Indicator,,,,,,,,provide the share aging information in an
+"",,,,,,,,automated fashion through the Networking
+"",,,,,,,,Share Aging file.
+"",,,,,2 =,,,The delivering firm or fund company will
+"",,,,,,,,provide the share aging information outside
+"",,,,,,,,of the system.
+Firm,2,42,43,A/N,Space,,=,Broker
+Membership,,,,,01,,=,Trust
+Indicator,,,,,,,,
+Deliverer,,,,,,,,
+New Fund,20,44,63,A/N,,,,
+Customer,,,,,,,,
+Account,,,,,,,,
+Number,,,,,,,,
+Receiver,,,,,,,,
+Re-registration,8,64,71,A/N,Format is CCYYMMDD,,,
+Date at Fund,,,,,,,,
+MF Agent,1,72,72,A/N,0 =,,,Deliverer will not use alternate Fund/SERV
+Processing,,,,,,,,clearing number.
+Indicator,,,,,1 =,,,Deliverer will use alternate Fund/SERV
+"(Deliverer)",,,,,,,,clearing number.
+Filler,8,73,80,A/N,Reserved for future use—spaces,,,
+"",,,,,END OF RECORD,,,
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+Asset Insurance Data,,,,,Used when Settling Location is ‘60’
+"",,,,,(IPS).
+Record Type,1,1,1,A/N,E  =  End of Day Transaction
+"",,,,,MRO
+"",,,,,M  =  Multi-Cycle Transaction
+"",,,,,MRO
+Record Subtype,1,2,2,A/N,A  =  Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number +
+"",,,,,1
+Logical Sequence Number,2,5,6,NUM,10
+Insurance,1,7,7,A/N,Values for Status Code:
+Customer Account Number Deliverer,,,,,
+Status,,,,,0 = Valid
+"",,,,,1 =  Participant Changed
+"",,,,,2 = System Changed
+"",,,,,3 = Error
+"",,,,,Space = No Change
+Owner 1 Natural/Non-Natural Indicator,1,8,8,A/N,See status code values above
+Status,,,,,
+Owner 1 Name Status,1,9,9,A/N,See status code values above
+Owner 1 ID  Status,1,10,10,A/N,See status code values above
+Owner 1 ID Qualifier Status,1,11,11,A/N,See status code values above
+Owner 1 Qualifier Status,1,12,12,A/N,See status code values above
+Owner 2 Natural/Non-Natural Indicator,1,13,13,A/N,See status code values above
+Status,,,,,
+Owner 2 Name Status,1,14,14,A/N,See status code values above
+Owner 2 ID Status,1,15,15,A/N,See status code values above
+Owner 2 ID Qualifier Status,1,16,16,A/N,See status code values above
+Owner 2 Qualifier Status,1,17,17,A/N,See status code values above
+Annuitant 1 Name Status,1,18,18,A/N,See status code values above
+Annuitant 1 ID Status,1,19,19,A/N,See status code values above
+Annuitant 1 ID Qualifier Status,1,20,20,A/N,See status code values above
+Annuitant 2 Name Status,1,21,21,A/N,See status code values above
+Annuitant 2 ID Status,1,22,22,A/N,See status code values above
+Annuitant 2 ID Qualifier Status,1,23,23,A/N,See status code values above
+IRS Qualification Code Status,1,24,24,A/N,See status code values above
+Contract Number Status,1,25,25,A/N,See status code values above
+Contract Value Status,1,26,26,A/N,See status code values above
+Contract Value As-Of Date Status,1,27,27,A/N,See status code values above
+Delivering Associated Firm ID Status,1,28,28,A/N,See status code values above
+Filler,52,29,80,A/N,Reserved for future use—spaces
+"",,,,,END OF RECORD
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,11,,
+Filler,74,7,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction
+"",,,,,,,MRO
+"",,,,,M,=,Multi-Cycle Transaction
+"",,,,,,,MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,12,,
+Insurance,20,7,26,A/N,,,
+Customer Account Number,,,,,,,
+Deliverer,,,,,,,
+Owner 1 Natural/Non-Natural,1,27,27,A/N,N,– Natural,
+Indicator,,,,,X,– Non-Natural,
+Owner 1 Name 1,50,28,77,A/N,,,
+Filler,3,78,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,13,,
+Owner 1 Name 2,55,7,61,A/N,,,
+Filler,19,62,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,14,,
+Number,,,,,,,
+Owner 1 ID,20,7,26,A/N,,,
+Owner 1 ID Qualifier,2,27,28,A/N,34,,=  Social Security Number
+"",,,,,A3,,=  Non-Resident Alien Number
+"",,,,,FI,,=  Federal Taxpayer’s Identification
+"",,,,,,,Number
+"",,,,,SB,,=  Canadian Social Insurance Number
+Owner 1 Qualifier,1,29,29,A/N,1,,=  Person
+"",,,,,2,,=  Other Non-person Entity
+"",,,,,3,,=  Unknown
+"",,,,,4,,=  Corporation
+"",,,,,5,,=  Trust
+"",,,,,6,,=  Plan
+"",,,,,7,,=  Limited Liability Corporation
+"",,,,,8,,=  Partnership
+"",,,,,C,,=  Custodial
+"",,,,,D,,=  Non-Profit Organization
+"",,,,,E,,=  Sole-Proprietorship
+"",,,,,G,,=  Government
+"",,,,,H,,=  Charitable Organization
+"",,,,,R,,=  Charitable Remainder Trust
+"",,,,,U,,=  UGMA/UTMA
+Filler,51,30,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction
+"",,,,,,,MRO
+"",,,,,M,=,Multi-Cycle Transaction
+"",,,,,,,MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,15,,
+Owner 2 Natural/Non-Natural,1,7,7,A/N,N,–,Natural
+Indicator,,,,,X,–,Non-Natural
+Owner 2 Name 1,50,8,57,A/N,,,
+Filler,23,58,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,16,,
+Owner 2 Name 2,55,7,61,A/N,,,
+Filler,19,62,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence Number,2,5,6,NUM,17,,
+Owner 2 ID,20,7,26,A/N,,,
+Owner 2 ID Qualifier,2,27,28,A/N,34,,=  Social Security Number
+"",,,,,A3,,=  Non-Resident Alien Number
+"",,,,,FI,,=  Federal Taxpayer’s Identification
+"",,,,,,,Number
+"",,,,,SB,,=  Canadian Social Insurance Number
+Owner 2 Qualifier,1,29,29,A/N,1,,=  Person
+"",,,,,2,,=  Other Non-person Entity
+"",,,,,3,,=  Unknown
+"",,,,,4,,=  Corporation
+"",,,,,5,,=  Trust
+"",,,,,6,,=  Plan
+"",,,,,7,,=  Limited Liability Corporation
+"",,,,,8,,=  Partnership
+"",,,,,C,,=  Custodial
+"",,,,,D,,=  Non-Profit Organization
+"",,,,,E,,=  Sole-Proprietorship
+"",,,,,G,,=  Government
+"",,,,,H,,=  Charitable Organization
+"",,,,,R,,=  Charitable Remainder Trust
+"",,,,,U,,=  UGMA/UTMA
+Filler,51,30,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,18,,
+Annuitant 1 Name 1,50,7,56,A/N,,,
+Filler,24,57,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,19,,
+Annuitant 1 Name 2,55,7,61,A/N,,,
+Filler,19,62,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence Number,2,5,6,NUM,20,,
+Annuitant 1 ID,20,7,26,A/N,,,
+Annuitant 1 ID Qualifier,2,27,28,A/N,34,,=  Social Security Number
+"",,,,,A3,,=  Non-Resident Alien Number
+"",,,,,FI,,=  Federal Taxpayer’s Identification
+"",,,,,,,Number
+"",,,,,SB,,=  Canadian Social Insurance Number
+Annuitant 2 Name 1,50,29,78,A/N,,,
+Filler,2,79,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,21,,
+Annuitant 2 Name 2,55,7,61,A/N,,,
+Filler,19,62,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,22,,
+Number,,,,,,,
+Annuitant 2 ID,20,7,26,A/N,,,
+Annuitant 2 ID Qualifier,2,27,28,A/N,34,=,Social Security Number
+"",,,,,A3,=,Non-Resident Alien Number
+"",,,,,FI,=,Federal Taxpayer’s Identification
+"",,,,,,,Number
+"",,,,,SB,=,Canadian Social Insurance Number
+IRS Qualification Code,4,29,32,A/N,56,,=  403b Transfers Only
+"",,,,,1030,,=  401k
+"",,,,,1040,,= Solo 401k
+"",,,,,1070,,=  501c3
+"",,,,,1075,,=  501c9 / Health Reimbursement
+"",,,,,1080,,=  457 Deferred Compensation
+"",,,,,1090,,=  HR10/Keogh
+"",,,,,1314,,= 412i Inherited IRA Plan
+"",,,,,1315,,=  Non-Qualified Stretch Plan
+"",,,,,1316,,=  Qualified Stretch (inherited) ROTH
+"",,,,,,,Plan
+"",,,,,2000,,=  IRA
+"",,,,,2005,,=  IRA Rollover
+"",,,,,2010,,=  Non-qualified
+"",,,,,2040,,=  Pension Plan
+"",,,,,2050,,=  SAR/SEP
+"",,,,,2060,,=  SEP-IRA
+"",,,,,2070,,=  IRA Spousal
+"",,,,,2075,,=  IRA Transfer
+"",,,,,2090,,=  Cash Balance Plan-Defined
+"",,,,,,,Contributions
+"",,,,,3000,,=  Cash Balance Plan-Defined Benefit
+"",,,,,3010,,= Solo Defined Benefit
+"",,,,,3045,,=  403b
+"",,,,,3050,,=  401g  (formerly 403g)
+"",,,,,3055,,= 412 (i) Plan
+"",,,,,3210,,=  Simple IRA
+"",,,,,3215,,=  Roth IRA
+"",,,,,3216,,= Roth 401k
+"",,,,,3217,,= Roth 403b
+"",,,,,3220,,=  Educational IRA
+"",,,,,3230,,=  Profit Sharing Plan
+"",,,,,3235,,=  Money Purchase Plan
+"",,,,,3300,,= Welfare Benefit Plan (419 Plan)
+"",,,,,3400,,= 7702b / Long Term Care
+"",,,,,4000,,=  No U.S. Taxation (used for Offshore
+"",,,,,,,Products)
+Contract Number,30,33,62,A/N,,,
+FIELD NAME,LENGTH,START,END,TYPE,,COMMENTS
+Contract Value,16,63,78,A/N,Format:,
+"",,,,,"99,999,999,999,999.99",
+"",,,,,COBOL 9(14)v9(2),
+Filler,2,79,80,A/N,Reserved for future use—spaces,
+"",,,,,END OF RECORD,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,23,,
+Contract Value As-Of Date,8,7,14,A/N,Format: CCYYMMDD,,
+Filler,4,15,18,A/N,Reserved for future use—spaces,,
+Delivering Associated Firm ID,4,19,22,A/N,,,
+Filler,58,23,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,24,,
+Filler,74,7,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD,,,,,
+NAME,LENGTH,START,END,TYPE,COMMENTS
+"",,,,,Records 25 through 30 repeat record layout of record 24 and are
+"",,,,,reserved for future use
+"",,,,,END OF RECORD
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+Foreign Asset Data,,,,,Used when Settling Location is
+"",,,,,‘55’
+Record Type,1,1,1,A/N,E  =  End of Day Transaction
+"",,,,,MRO
+"",,,,,M  =  Multi-Cycle Transaction
+"",,,,,MRO
+Record Subtype,1,2,2,A/N,A  =  Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence
+"",,,,,Number + 1
+Logical Sequence Number,2,5,6,NUM,10
+SEDOL Number Status,1,7,7,A/N,Values for Status Code:
+"",,,,,0 = Valid
+"",,,,,1 =  Participant
+"",,,,,Changed
+"",,,,,2 = System Changed
+"",,,,,3 = Error
+"",,,,,Space = No Change
+CINS Number Status,1,8,8,A/N,See status code values above
+Delivering Firm Settlement Instruction Line,1,9,9,A/N,See status code values above
+1 Status,,,,,
+Delivering Firm Settlement Instruction Line,1,10,10,A/N,See status code values above
+2 Status,,,,,
+Delivering Firm Settlement Instruction Line,1,11,11,A/N,See status code values above
+3 Status,,,,,
+Delivering Firm Settlement Instruction Line,1,12,12,A/N,See status code values above
+4 Status,,,,,
+Delivering Firm Settlement Instruction Line,1,13,13,A/N,See status code values above
+5 Status,,,,,
+Filler,14,14,27,A/N,
+SEDOL Number,7,28,34,A/N,
+CINS Number,9,35,43,A/N,
+Delivering Firm Settlement Instruction Line,35,44,78,A/N,
+1,,,,,
+Filler,2,79,80,A/N,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction
+"",,,,,,,MRO
+"",,,,,M,=,Multi-Cycle Transaction
+"",,,,,,,MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number +,,
+"",,,,,1,,
+Logical Sequence Number,2,5,6,NUM,11,,
+Delivering Firm Settlement Instruction,35,7,41,A/N,,,
+Line 2,,,,,,,
+Delivering Firm Settlement Instruction,35,42,76,A/N,,,
+Line 3,,,,,,,
+Filler,4,77,80,A/N,,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction
+"",,,,,,,MRO
+"",,,,,M,=,Multi-Cycle Transaction
+"",,,,,,,MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number +,,
+"",,,,,1,,
+Logical Sequence Number,2,5,6,NUM,12,,
+Delivering Firm Settlement Instruction,35,7,41,A/N,,,
+Line 4,,,,,,,
+Delivering Firm Settlement Instruction,35,42,76,A/N,,,
+Line 5,,,,,,,
+Filler,4,77,80,A/N,,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,13,,
+Filler,74,7,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,A,=,Asset Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,14,,
+Filler,74,7,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,

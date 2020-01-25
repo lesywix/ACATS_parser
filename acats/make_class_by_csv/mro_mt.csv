@@ -1,0 +1,278 @@
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+"",,,,,A,=,Asset Output
+"",,,,,F,=,Fund Registration Output
+"",,,,,I,=,Insurance Registration Output
+Physical Sequence,2,3,4,NUM,01,,
+Number,,,,,,,
+Logical Sequence,2,5,6,NUM,01,,
+Number,,,,,,,
+Distribution Side,1,7,7,AN,R,=,Original Receiver
+"",,,,,D,=,Original Deliverer
+"",,,,,B,=,Both Original Receiver and Original
+"",,,,,,,Deliverer
+ACATS Control,14,8,21,A/N,Format is CCYYDDDNNNNNNN,,
+Number,,,,,,,
+Asset Sequence,6,22,27,NUM,,,
+Number,,,,,,,
+Processing Date,8,28,35,A/N,Format is CCYYMMDD,,
+Cycle,2,36,37,A/N,,,
+Filler,4,38,41,A/N,Reserved for future use—spaces,,
+Distribution,4,42,45,A/N,,,
+Participant,,,,,,,
+System Action,1,46,46,A/N,1,=,System Accepted
+"",,,,,2,=,System Rejected
+"",,,,,3,=,System Modified
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+System Reject,2,47,48,A/N,01,=,Invalid Field
+Reason,,,,,02,=,Missed Cutoff
+"",,,,,03,=,Associated Record Not Present or
+"",,,,,,,invalid
+"",,,,,04,=,Physical Records Out of Sequence
+"",,,,,05,=,Invalid Physical Sequence Number
+"",,,,,06,=,Logical Records Out of Sequence
+"",,,,,07,=,Invalid Logical Sequence Number
+"",,,,,08,=,Invalid Length Record
+"",,,,,09,=,Invalid Record Contents
+"",,,,,10,=,Invalid Add Transaction - record does
+"",,,,,,,not exist
+"",,,,,11,=,Invalid Chg Transaction - record does
+"",,,,,,,not exist
+"",,,,,12,=,Invalid Del Transaction - record does
+"",,,,,,,not exist
+"",,,,,13,=,Requested action invalid due to
+"",,,,,,,transfer status
+"",,,,,14,=,Transaction Invalid for Contra
+"",,,,,,,Participant
+"",,,,,15,=,Transaction Invalid for Submitting
+"",,,,,,,Participant
+"",,,,,16,=,Invalid Participant
+"",,,,,17,=,Invalid non-std transaction - invalid
+"",,,,,,,physical sequence
+"",,,,,18,=,Invalid non-std transaction  - restricted
+"",,,,,,,asset type or settlement location
+Status,3,49,51,A/N,100,=,Request
+"",,,,,110,=,Request Adjust
+"",,,,,120,=,Request Adjust Past
+"",,,,,130,=,Request Past
+"",,,,,140,=,Request Reject
+"",,,,,200,=,Review
+"",,,,,210,=,Review Adjust Deliverer
+"",,,,,220,=,Review Error
+"",,,,,230,=,Review Accelerate
+"",,,,,240,=,Review Adjust Receiver Accelerate
+"",,,,,300,=,Settle Prep
+"",,,,,310,=,Settle Close
+"",,,,,400,=,Close Purge
+"",,,,,500,=,Request
+"",,,,,510,=,Memo Purge-Partial Transfer Request
+"",,,,,,,Receiver)
+"",,,,,600,=,Reject
+Days in Status,3,52,54,A/N,,,
+Filler,18,55,72,A/N,Reserved for future use—spaces,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Registration,1,73,73,A/N,D,=,Default registration
+Indicator,,,,,P,=,Participant registration
+"",,,,,Space,=,N/A
+Filler,7,74,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+"",FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day
+"",,,,,,,,Transaction MRO
+"",,,,,,M,=,Multi-Cycle
+"",,,,,,,,Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence,,
+"",,,,,,Number + 1,,
+Logical Sequence Number,2,5,6,NUM,02,,
+TI Record Type Status,1,7,7,A/N,Values for Status Code:,,
+"",,,,,,0,,= Valid
+"",,,,,,1,,=  Participant
+"",,,,,,,,Changed
+"",,,,,,2,,= System Changed
+"",,,,,,3,,= Error
+"",,,,,,Space,,= No Change
+TI Record Length Status,1,8,8,A/N,See status code values above,,
+TI Physical Sequence Number Status,1,9,9,A/N,See status code values above,,
+TI Logical Sequence Number Status,1,10,10,A/N,See status code values above,,
+TI Transaction Type Status,1,11,11,A/N,See status code values above,,
+TI ACATS Control Number Status,1,12,12,A/N,See status code values above,,
+TI Transfer Type,1,13,13,A/N,See status code values above,,
+TI Submitting Participant Number Status,1,14,14,A/N,See status code values above,,
+TI Original Receiver Number Status,1,15,15,A/N,See status code values above,,
+TI Original Deliverer Number Status,1,16,16,A/N,See status code values above,,
+Original Receiver Customer Account,1,17,17,A/N,See status code values above,,
+Number Status,,,,,,,,
+Original Receiver Customer  Account,1,18,18,A/N,See status code values above,,
+Name Status,,,,,,,,
+FIELD NAME,LENGTH,START,END,TYPE,COMMENTS
+Original Receiver Status,1,19,19,A/N,See status code values above
+Customer SS Number /Tax ID Primary,,,,,
+Status,,,,,
+Original Receiver,1,20,20,A/N,See status code values above
+Customer SS Number / Tax ID Secondary,,,,,
+Status,,,,,
+Original Receiver Customer Account Type,1,21,21,A/N,See status code values above
+Status,,,,,
+Original Receiver  OCC Broker Number,1,22,22,A/N,See status code values above
+Status,,,,,
+Original Receiver Correspondent Status,1,23,23,A/N,See status code values above
+Original Deliverer Customer Account,1,24,24,A/N,See status code values above
+Number Status,,,,,
+Transfer Type Reject Status,1,25,25,A/N,See status code values above
+Associated ACATS Control Number Status,1,26,26,A/N,See status code values above
+Associated Settlement Date Status,1,27,27,A/N,See status code values above
+TI Transaction Reference ID Status,1,28,28,A/N,See status code values above
+Comments (Text) Status,1,29,29,A/N,See status code values above
+Gift / Donation Indicator Status,1,30,30,A/N,See status code values above
+Filler,40,31,70,A/N,Reserved for future use—
+"",,,,,spaces
+TI Record Type,2,71,72,A/N,‘TI’
+TI Record Length,4,73,76,NUM,
+TI Physical Sequence Number,2,77,78,NUM,
+TI Logical Sequence Number,2,79,80,NUM,
+"",,,,,END OF RECORD
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,03,,
+TI Transaction Type,1,7,7,A/N,A,=,Add
+"",,,,,C,=,Change
+"",,,,,R,=,Reject
+"",,,,,X,=,Accelerate
+TI ACATS Control Number,14,8,21,A/N,Format is CCYYDDDNNNNNNN,,
+TI Transfer Type,3,22,24,A/N,FRV,,=  Fail Reversal (broker to
+"",,,,,,,broker only)
+"",,,,,FUL,,=Full Transfer
+"",,,,,MFC,,=Mutual Fund Cleanup
+"",,,,,PTD,,=Partial Transfer (Deliverer)
+"",,,,,PTF,,=  Position Transfer Fund (Firm
+"",,,,,,,to Fund only)
+"",,,,,PTR,,=Partial Transfer Request
+"",,,,,,,(Receiver)
+"",,,,,RCL,,=Reclaim
+"",,,,,RCR,,=Residual Credit
+Filler,4,25,28,A/N,Reserved for future use—spaces,,
+TI Submitting Participant,4,29,32,A/N,,,
+Number,,,,,,,
+Filler,4,33,36,A/N,Reserved for future use—spaces,,
+TI Original Receiver Number,4,37,40,A/N,,,
+Filler,4,41,44,A/N,Reserved for future use—spaces,,
+TI Original Deliverer,4,45,48,A/N,,,
+Number,,,,,,,
+Original Receiver Customer,20,49,68,A/N,,,
+Account Number,,,,,,,
+Filler,12,69,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction
+"",,,,,,,MRO
+"",,,,,M,=,Multi-Cycle Transaction
+"",,,,,,,MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,04,,
+Original Receiver,60,7,66,A/N,,,
+Customer Account Name,,,,,,,
+Original Receiver,9,67,75,A/N,,,
+Customer SS Number /Tax ID,,,,,,,
+Primary,,,,,,,
+Filler,5,76,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,05,,
+Original Receiver,9,7,15,A/N,,,
+Customer SS Number / Tax,,,,,,,
+ID Secondary,,,,,,,
+Original Receiver Customer,2,16,17,A/N,4B,,= 403B
+Account Type,,,,,4K,,= 401K
+"",,,,,5P,,= 529 Plan
+"",,,,,7B,,= 457 Plan
+"",,,,,AG,,= Agency
+"",,,,,BC,,= Bank Custody
+"",,,,,BI,,= Beneficiary
+"",,,,,BR,,= Beneficiary Roth IRA
+"",,,,,CO,,= Corporate
+"",,,,,CT,,= Co-Trustee
+"",,,,,CU,,= Custodian (UGMA)
+"",,,,,DR,,= Direct Rollover
+"",,,,,EI,,= Coverdell IRA (name change
+"",,,,,,,from Educational IRA account)
+"",,,,,ES,,= Estate
+"",,,,,HS,,= Health Savings Account
+"",,,,,IR,,=IRA
+"",,,,,JT,,=  Joint
+"",,,,,MS,,=  Medical Savings Account
+"",,,,,OT,,=  Other
+"",,,,,QP,,= Qualified / Profit Sharing/Pension
+"",,,,,RI,,=Roth IRA
+"",,,,,SI,,=Simple IRA
+"",,,,,SN,,= Single
+"",,,,,SS,,= SARSEP
+"",,,,,TR,,= Trust
+Gift / Donation Indicator,1,18,18,A/N,0,=,"No, transfer is not gift / donation"
+"",,,,,1,=,"Yes, transfer is gift / donation"
+Filler,2,19,20,A/N,Reserved for future use—spaces,,
+Original Receiver  OCC,5,21,25,A/N,,,
+Broker Number,,,,,,,
+Filler,4,26,29,A/N,Reserved for future use—spaces,,
+Original Receiver,4,30,33,A/N,,,
+Correspondent,,,,,,,
+Filler,3,34,36,A/N,Reserved for future use—spaces,,
+Contra Participant Type,1,37,37,A/N,Values:,,
+"",,,,,1,Bank,
+"",,,,,2,Broker,
+"",,,,,3,Fund,
+"",,,,,4,Insurance Company,
+"",,,,,5,Trust,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Original Deliverer Customer,20,38,57,A/N,,,
+Account Number,,,,,,,
+Transfer Type Reject,2,58,59,A/N,01,=,SS# Tax ID Mismatch
+"",,,,,02,=,Account Title Mismatch
+"",,,,,03,=,Documentation Needed
+"",,,,,04,=,Account Flat
+"",,,,,05,=,Invalid Account Number
+"",,,,,06,=,Duplicate
+"",,,,,07,=,Account in Distribution or Transfer
+"",,,,,08,=,Client Rescinded
+"",,,,,09,=,Missing Authorization Signature
+"",,,,,21,=,Account Violates Credit Policy of
+"",,,,,,,Receiving Firm
+"",,,,,22,=,Unrecognized for Residual Credit
+"",,,,,,,Balance
+"",,,,,23,=,Partial Transfer (Deliverer
+"",,,,,,,Initiated) Reject
+"",,,,,24,=,Fail Reversal Reject
+"",,,,,25,=,Reclaim Reject
+"",,,,,27,=,Mutual Fund Cleanup Reject
+"",,,,,99,=,NSCC Ceased to Act
+Associated ACATS Control,14,60,73,A/N,,,
+Number,,,,,,,
+Filler,7,74,80,A/N,Reserved for future use—spaces,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,06,,
+Associated Settlement Date,8,7,14,A/N,,,
+TI Transaction Reference ID,20,15,34,A/N,,,
+Comments (Text) 1,46,35,80,A/N,,,
+"",,,,,END OF RECORD,,
+FIELD NAME,LENGTH,START,END,TYPE,,,COMMENTS
+Record Type,1,1,1,A/N,E,=,End of Day Transaction MRO
+"",,,,,M,=,Multi-Cycle Transaction MRO
+Record Subtype,1,2,2,A/N,T,=,Transfer Output
+Physical Sequence Number,2,3,4,NUM,Prior Physical Sequence Number + 1,,
+Logical Sequence Number,2,5,6,NUM,07,,
+Comments (Text) 2,74,7,80,A/N,,,
+"",,,,,END OF RECORD,,
