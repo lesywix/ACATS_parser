@@ -15,13 +15,13 @@ class ATRecord01(BaseATRecord):
     acats_control_number = Field(8, 21, required=False)
     transfer_type = Field(22, 24, choices=TransferType.keys())
     f1 = Field(25, 28, required=False)
-    submitting_participant_number = Field(29, 32)
+    submitting_participant_number = Field(29, 32, default='0001')
     f2 = Field(33, 36, required=False)
-    original_receiver_number = Field(37, 40)
+    original_receiver_number = Field(37, 40, default='0001')
     f3 = Field(41, 44, required=False)
     original_deliverer_number = Field(45, 48)
     transaction_reference_id = Field(
-        49, 68, required=False, clean_field=lambda x: f'{SSI_MPID}{x.replace("-", "")}'.upper() if x else x
+        49, 68, required=False, clean_field=lambda x: f'{x.replace("-", "")}'.upper() if x else x
     )
     asset_sequence_number = Field(69, 74, default='000000')
     f4 = Field(75, 76, required=False)
