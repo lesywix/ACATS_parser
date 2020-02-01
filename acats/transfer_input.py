@@ -43,7 +43,7 @@ class TIRecord03(BaseTIRecord):
     f1 = Field(19, 20, required=False)
     original_receiver_occ_broker_number = Field(21, 25, required=False)
     f2 = Field(26, 29, required=False)
-    original_receiver_correspondent = Field(30, 33)
+    original_receiver_correspondent = Field(30, 33, default='XXXX')
     f3 = Field(34, 37, required=False)
     original_deliverer_customer_account_number = Field(
         38, 57, required=False, clean_field=lambda x: x.upper() if x else x

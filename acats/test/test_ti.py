@@ -10,9 +10,11 @@ class TestTIRecord(unittest.TestCase):
             transaction_type='A',
             transfer_type='FUL',
             original_deliverer_number='0534',
-            original_receiver_customer_account_number='SSTSXCTD-00001234'
+            original_receiver_customer_account_number='XXXXXXXXXCTD00001234',
+            submitting_participant_number='0001',
+            original_receiver_number='0001'
         )
-        s = 'TI0101A              FUL    0873    0873    0534SSTSSSTSXCTD00001234            \r\n'
+        s = 'TI0101A              FUL    0001    0001    0534XXXXXXXXXCTD00001234            \r\n'
         # print(ti1.convert_str_to_dict(s))
         self.assertEqual(ti1.generate_value_str(), s)
 
@@ -21,23 +23,25 @@ class TestTIRecord(unittest.TestCase):
             transaction_type='A',
             transfer_type='FUL',
             original_deliverer_number='0534',
-            original_receiver_customer_account_number='XCTD-00001234'
+            original_receiver_customer_account_number='XXXXXXXXXCTD00001234',
+            submitting_participant_number='0001',
+            original_receiver_number='0001'
         )
         ti2 = TIRecord02(
-            original_receiver_customer_account_name='MINJIN CHEN',
+            original_receiver_customer_account_name='NAME NAME',
             original_receiver_customer_ssn_or_tax_id_primary='000000000'
         )
         ti3 = TIRecord03(
             original_receiver_customer_account_type='SN',
-            original_deliverer_customer_account_number='U8517898'
+            original_deliverer_customer_account_number='U0000000'
         )
         ti4 = TIRecord04(transaction_reference_id=None)
         ti5 = TIRecord05()
 
         ti = TIRecordBundle(ti1, ti2, ti3, ti4, ti5)
-        r = "TI0101A              FUL    0873    0873    0534SSTSXCTD00001234                \r\n" \
-            "TI0202MINJIN CHEN                                                 000000000     \r\n" \
-            "TI0303         SN            SSTS    U8517898                                   \r\n" \
+        r = "TI0101A              FUL    0001    0001    0534XXXXXXXXXCTD00001234            \r\n" \
+            "TI0202NAME NAME                                                   000000000     \r\n" \
+            "TI0303         SN            XXXX    U0000000                                   \r\n" \
             "TI0404                                                                          \r\n" \
             "TI9505                                                                          \r\n"
         self.assertEqual(ti.generate_bundle_str(), r)
